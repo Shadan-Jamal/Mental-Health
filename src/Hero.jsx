@@ -15,7 +15,7 @@ function Hero() {
     })
   return (
     <section className='w-screen h-screen lg:px-24 lg:py-3 grid grid-cols-2 gap-5'>
-        <audio src="./src/assets/autumn-sky-meditation-7618.mp3" 
+        <audio src="/autumn-sky-meditation-7618.mp3" 
         loop
         id='audio'></audio>
         <div className='col-span-1'>
@@ -27,7 +27,7 @@ function Hero() {
 
             <div className='grid grid-rows-2 place-content-center gap-5 w-full lg:max-h-full'>
                 <div className='flex flex-col justify-center items-center row-span-2'>
-                    <img src="./src/assets/counsellor.jpg" className='rounded-2xl aspect-auto w-64'/>
+                    <img src="/counsellor.jpg" className='rounded-2xl aspect-auto w-64'/>
                     <h3 className='text-white text-base lg:text-lg font-bold self-center'>Ms. Preethi Jain</h3>
                     <div className='flex flex-row justify-center items-center gap-3'>
                         <p className='text-white text-base lg:text-lg font-bold self-center'>Counsellor</p>
@@ -39,7 +39,7 @@ function Hero() {
 
                 <div className='flex flex-row justify-center gap-10 row-span-2'>
                     <div className='flex flex-col justify-center'>
-                        <img src="./src/assets/Renita_inner.jpg" className='rounded-2xl aspect-auto w-64 self-center' alt="" />
+                        <img src="./Renita_inner.jpg" className='rounded-2xl aspect-auto w-64 self-center' alt="" />
                         <h3 className='text-white text-base lg:text-lg font-bold self-center'>Ms. Renita Blossom Monteiro 
                         </h3>
                         <div className='flex flex-row justify-center items-center gap-3'>
@@ -50,7 +50,7 @@ function Hero() {
                         </div>
                     </div>
                     <div className='flex flex-col justify-center'>
-                        <img src="./src/assets/Kagendra_inner.jpg" className='rounded-2xl aspect-auto w-64' alt="" />
+                        <img src="/Kagendra_inner.jpg" className='rounded-2xl aspect-auto w-64' alt="" />
                         <h3 className='text-white text-base lg:text-lg font-bold self-center'>Mr. Kagendra T. </h3>
                         <div className='flex flex-row justify-center items-center gap-3'>
                             <h3 className='text-white text-base lg:text-lg font-bold self-center '>(Student Welfare Officer)</h3>
