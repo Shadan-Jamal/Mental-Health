@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import {motion, AnimatePresence} from 'framer-motion';
+import {motion  } from 'framer-motion';
 import { AiOutlineMail } from "react-icons/ai";
 import { IoIosArrowRoundDown } from "react-icons/io";
 
 function Hero() {
     const [arrowClicked, setArrowClicked] = useState(false);
-
+    const [hover,setHover] = useState(false);
     useEffect(() => {
         document.body.addEventListener('mouseover',() => {
             const audio = document.getElementById('audio');
@@ -14,52 +14,120 @@ function Hero() {
         });
     })
   return (
-    <section className='w-screen h-screen lg:px-24 lg:py-3 grid grid-cols-2 gap-5'>
+    <section className='max-w-full max-h-full lg:px-12 lg:py-1 grid grid-cols-3 gap-5 bg-[#0f172a]'>
+        <div>
+            <button className='bg-blue-500 text-white text-xl font-bold rounded-lg w-28 p-1 max-h-fit hover:bg-blue-800 absolute right-6 top-6'>Login</button>
+        </div>
         <audio src="/autumn-sky-meditation-7618.mp3" 
         loop
         id='audio'></audio>
-        <div className='col-span-1'>
+        <div className='col-span-3 self-center'>
+            <img src="/logo.png" className='w-[700px] text-center mx-auto' alt="" />
+        </div>
+
+
+        <div className='col-span-2 '>
             <div id='header' className='mb-3'>
                 <h1 className='text-white text-[50px] lg:text-[60px] font-bold text-center'>
                 Our Officers..
                 </h1>
             </div>
 
-            <div className='grid grid-rows-2 place-content-center gap-5 w-full lg:max-h-full'>
-                <div className='flex flex-col justify-center items-center row-span-2'>
-                    <img src="/counsellor.jpg" className='rounded-2xl aspect-auto w-64'/>
-                    <h3 className='text-white text-base lg:text-lg font-bold self-center'>Ms. Preethi Jain</h3>
-                    <div className='flex flex-row justify-center items-center gap-3'>
-                        <p className='text-white text-base lg:text-lg font-bold self-center'>Counsellor</p>
-                        <a href="mailto:counsellor@claretcollege.edu.in" className="" target='_blank'>
-                            <AiOutlineMail size={'20px'} color='white'/>
-                    </a>      
+            <div className='grid grid-rows-2 place-content-center gap-10 w-full lg:max-h-full'>
+                <div className='flex flex-row gap-5 justify-center items-center row-span-2'>
+                    <div>
+                        <motion.img 
+                        onHoverStart={() => setHover(true)}
+                        src="/counsellor.jpg" className='rounded-2xl aspect-auto w-52'/>
+                        {hover && <motion.div
+                        initial={{transform: 'tranlateY(-50px)'}}
+                        animate={{transform: 'tranlateY(0px)'}} 
+                        className='flex flex-col justify-center items-center gap-1'>
+                        <h3 className='text-white text-sm font-bold self-center'>Ms. Preethi Jain</h3>
+                            <p className='text-white text-sm font-bold self-center'>Counsellor</p>
+                            <a href="mailto:counsellor@claretcollege.edu.in" className="" target='_blank'>
+                                <AiOutlineMail size={'20px'} color='white'/>
+                        </a>      
+                        </motion.div>}
+                    </div>
+                    <div>
+                        <img src="/Angela_inner.jpg" className='rounded-2xl aspect-auto w-52'/>
+                        <div className='flex flex-col justify-center items-center'>
+                        <h3 className='text-white text-sm text-sm font-bold self-center'>Ms. Angela Jean Mary E.</h3>
+                        
+                            <p className='text-white text-sm text-sm font-bold self-center'>(Student Council Mentor)</p>
+                            <a href="mailto:angela@claretcollege.edu.in" className="" target='_blank'>
+                                <AiOutlineMail size={'20px'} color='white'/>
+                        </a>      
+                        </div>
                     </div>
                 </div>
 
-                <div className='flex flex-row justify-center gap-10 row-span-2'>
-                    <div className='flex flex-col justify-center'>
-                        <img src="./Renita_inner.jpg" className='rounded-2xl aspect-auto w-64 self-center' alt="" />
-                        <h3 className='text-white text-base lg:text-lg font-bold self-center'>Ms. Renita Blossom Monteiro 
+                <div className='grid grid-cols-3 gap-10 row-span-2'>
+                    <div className='col-span-1 flex flex-row justify-between gap-3'>
+                        <img src="./Renita_inner.jpg" className='rounded-2xl aspect-auto w-36 self-center' alt="" />
+                        <div className='flex flex-col justify-center items-center gap-1'>
+                        <h3 className='text-white text-sm text-sm font-bold self-center'>Ms. Renita Blossom Monteiro 
                         </h3>
-                        <div className='flex flex-row justify-center items-center gap-3'>
-                            <h3 className='text-white text-base lg:text-lg font-bold self-center'>(Student Welfare Officer)</h3>
+                        
+                            <h3 className='text-white text-sm text-sm font-bold self-center'>(Student Welfare Officer)</h3>
                             <a href="mailto:renita@claretcollege.edu.in" className="self-center" target='_blank'>
                                 <AiOutlineMail size={'20px'} color='white'/>
                             </a>
                         </div>
                     </div>
-                    <div className='flex flex-col justify-center'>
-                        <img src="/Kagendra_inner.jpg" className='rounded-2xl aspect-auto w-64' alt="" />
-                        <h3 className='text-white text-base lg:text-lg font-bold self-center'>Mr. Kagendra T. </h3>
-                        <div className='flex flex-row justify-center items-center gap-3'>
-                            <h3 className='text-white text-base lg:text-lg font-bold self-center '>(Student Welfare Officer)</h3>
+                    <div className='col-span-1 flex flex-row justify-center'>
+                        <img src="/Kagendra_inner.jpg" className='rounded-2xl aspect-auto w-36' alt="" />
+                        <div className='mx-3 flex flex-col justify-center items-center gap-3'>
+                        <h3 className='text-white self-start text-sm lg:text-sm font-bold'>Mr. Kagendra T. </h3>
+                            <h3 className='text-white text-sm text-sm font-bold self-center '>(Student Welfare Officer)</h3>
+                            <a href="mailto:kagendra@claretcollege.edu.in" target='_blank' className='hover:underline self-center'>
+                                <AiOutlineMail size={'20px'}  color='white'/>
+                            </a>
+                        </div>
+                    </div>
+                    <div className='col-span-1 flex flex-row justify-center'>
+                        <img src="/Binila-B-Chandran-inner.jpg" className='rounded-2xl aspect-auto w-36' alt="" />
+                        <div className='flex flex-col justify-center items-center gap-3'>
+                        <h3 className='text-white text-sm text-sm font-bold self-center'>Ms. Binila B. Chandran</h3>
+                            <h3 className='text-white text-sm text-sm font-bold self-start'>(Student Welfare Officer)</h3>
+                            <a href="mailto:kagendra@claretcollege.edu.in" target='_blank' className='hover:underline self-center'>
+                                <AiOutlineMail size={'20px'}  color='white'/>
+                            </a>
+                        </div>
+                    </div>
+                    <div className='col-span-1 flex flex-row justify-center'>
+                        <img src="/Chethan_inner.jpg" className='rounded-2xl aspect-auto w-36' alt="" />
+                        <div className='flex flex-col justify-center items-center gap-3'>
+                        <h3 className='text-white text-sm text-sm font-bold self-start'>Mr. Chethan S. </h3>
+                            <h3 className='text-white text-sm text-sm font-bold self-center '>(Student Welfare Officer)</h3>
+                            <a href="mailto:kagendra@claretcollege.edu.in" target='_blank' className='hover:underline self-center'>
+                                <AiOutlineMail size={'20px'}  color='white'/>
+                            </a>
+                        </div>
+                    </div>
+                    <div className='col-span-1 flex flex-row justify-center'>
+                        <img src="/Rudresh_inner.jpg" className='rounded-2xl aspect-auto w-36' alt="" />
+                        <div className='flex flex-col justify-center items-center gap-3'>
+                        <h3 className='text-white text-sm text-sm font-bold self-start'>Mr. Rudresh S. </h3>
+                            <h3 className='text-white text-sm text-sm font-bold self-center '>(Student Welfare Officer)</h3>
+                            <a href="mailto:kagendra@claretcollege.edu.in" target='_blank' className='hover:underline self-center'>
+                                <AiOutlineMail size={'20px'}  color='white'/>
+                            </a>
+                        </div>
+                    </div>
+                    <div className='col-span-1 flex flex-row justify-center'>
+                        <img src="/Manjunatha_inner.jpg" className='rounded-2xl aspect-auto w-36' alt="" />
+                        <div className='flex flex-col justify-center items-center gap-3'>
+                        <h3 className='text-white text-sm text-sm font-bold self-start'>Mr. Manjunatha G. </h3>
+                            <h3 className='text-white text-sm text-sm font-bold self-center '>(Student Welfare Officer)</h3>
                             <a href="mailto:kagendra@claretcollege.edu.in" target='_blank' className='hover:underline self-center'>
                                 <AiOutlineMail size={'20px'}  color='white'/>
                             </a>
                         </div>
                     </div>
                 </div>
+
             </div>
 
         </div>
